@@ -65,17 +65,22 @@
       <h3>Sessions</h3>
 
       <div class="row">
-        <div class="col-md-10 col-md-push-1">
+        <div class="col-sm-10 col-sm-push-1">
 
           <div class="row session" ng-repeat="session in event.sessions">
             <div class="panel panel-info">
               <div class="panel-heading"><span>{{session.name}}</span></div>
               <div class="panel-body">
-                <div class="col-md-1">
-                  <i class="fa fa-thumbs-o-up"></i>
-                  <i class="fa fa-thumbs-o-down"></i>
+                <div class="col-sm-2 col-md-1 text-center">
+                  <div class="votingButton" ng-click="upVoteSession(session)">
+                    <i class="fa fa-chevron-up"></i>
+                  </div>
+                  <span class="badge">{{session.upVoteCount}}</span>
+                  <div class="votingButton" ng-click="downVoteSession(session)">
+                    <i class="fa fa-chevron-down"></i>
+                  </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-sm-10 col-md-11">
                   <p>
                     <span class="text-muted">{{session.creatorName}}</span><br />
                     <span><strong>Duration:</strong> {{session.duration}}</span><br />
