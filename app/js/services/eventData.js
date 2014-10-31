@@ -3,23 +3,12 @@
 
   eventsApp.factory('eventData', EventData);
   
-  EventData.$inject = ['$http', '$q'];
+  EventData.$inject = ['$resource'];
 
-  function EventData($http, $q) {
+  function EventData($resource) {
     return {
-      getEvent: function () {
-
-        var deferred = $q.defer();
-
-        $http({ method: 'GET', url: '/data/event/5' }).
-          success(function (data, status, headers, config) {
-            deferred.resolve(data);
-          }).
-          error(function (data, status, headers, config) {
-            deferred.reject(status);
-          });
-
-        return deferred.promise;
+      getEvent: function (id) {
+        return $resource('/data/event/:id', { id: '@id' }).get({ id: id });
       }
     };
   };
