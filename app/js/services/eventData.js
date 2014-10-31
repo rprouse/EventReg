@@ -1,48 +1,50 @@
-'use strict';
+﻿(function () {
+  'use strict';
 
-eventsApp.factory('eventData', function (eventResource, authService) {
+  eventsApp.factory('eventData', function() {
     return {
-        getEvent: function(eventId, callback) {
-            return eventResource.get({id:eventId}, function(event) {
-                if (callback)
-                    callback(event);
-            });
+      event: {
+        name: 'CoderCamp 21',
+        date: 1421989200000,
+        time: '6:30 pm',
+        location: {
+          address: 'Augusta St',
+          city: 'Hamilton',
+          province: 'ON'
         },
-        getAllEvents: function(callback) {
-            return eventResource.queryAll(callback);
-        },
-        getNextSessionId:function (event) {
-            var max = 0;
-            for (var idx = 0; idx < event.sessions.length; idx++) {
-                if (event.sessions[idx].id > max) {
-                    max = event.sessions[idx].id;
-                }
-            }
-            return max+1;
-        },
-        save: function(event, callback) {
-            if (event.id) {
-                eventResource.save(event, function() { if (callback) callback(); });
-            } else {
-                eventResource.queryAll(function(events) {
-                    event.creator = authService.getCurrentUserName();
-                    event.id = getNextEventId(events);
-                    event.sessions = [];
-                    eventResource.save(event);
-                    if (callback)
-                        callback();
-                });
-            }
-        }
+        imageUrl: 'http://www.softwarehamilton.com/wp-content/uploads/2014/01/swhamsmall.jpg',
+        sessions: [
+          {
+            name: 'Introduction to HTML',
+            creatorName: 'Bob Smith',
+            duration: 1,
+            level: 'Introductory',
+            abstract: 'In this sesion, you will learn to love angle brackets',
+            upVoteCount: 0
+          }, {
+            name: 'Node.js for .NET Developers',
+            creatorName: 'Joanne Jones',
+            duration: 2,
+            level: 'Intermediate',
+            abstract: 'Any web developer worth their salt is using Node.js these days',
+            upVoteCount: 0
+          }, {
+            name: 'JQuery Fundementals',
+            creatorName: 'Gary White',
+            duration: 1,
+            level: 'Intermediate',
+            abstract: 'A quick dive into using JQuery',
+            upVoteCount: 0
+          }, {
+            name: 'JQuery Deep Dive',
+            creatorName: 'Gary White',
+            duration: 4,
+            level: 'Advanced',
+            abstract: 'Continuing from his first session, Gary takes a deep dive into JQuery',
+            upVoteCount: 0
+          }
+        ]
+      }
     };
-
-    function getNextEventId(events) {
-        var max = 0;
-        for (var idx = 0; idx < events.length; idx++) {
-            if (events[idx].id > max) {
-                max = events[idx].id;
-            }
-        }
-        return max+1;
-    }
-});
+  });
+})();
