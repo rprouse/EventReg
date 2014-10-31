@@ -3,15 +3,6 @@ body {
   padding-bottom: 20px;
 }
 
-/* app css stylesheet */
-.hoverwell:hover {
-  background-color: #52575c;
-  cursor: pointer;
-}
-
-.well-title {
-  margin-top: 0px;
-}
 .session {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -21,11 +12,10 @@ body {
     user-select: none;
 }
 
-.votingWidget {
-  height: 64px;
-  padding: 7px;
-}
-
 .votingButton {
   cursor:pointer;
 }
+
+.event-image {
+   margin-top: 20px;
+ }
