@@ -3,19 +3,23 @@
 
   eventsApp.factory('eventData', EventData);
   
-  EventData.$inject = ['$http', '$log'];
+  EventData.$inject = ['$http', '$q'];
 
-  function EventData($http, $log) {
+  function EventData($http, $q) {
     return {
-      getEvent: function(successCallback) {
+      getEvent: function () {
+
+        var deferred = $q.defer();
+
         $http({ method: 'GET', url: '/data/event/5' }).
           success(function (data, status, headers, config) {
-            $log.info(data, status, headers(), config);
-            successCallback(data);
+            deferred.resolve(data);
           }).
-          error(function(data, status, headers, config) {
-            $log.warn(data, status, headers(), config);
+          error(function (data, status, headers, config) {
+            deferred.reject(status);
           });
+
+        return deferred.promise;
       }
     };
   };

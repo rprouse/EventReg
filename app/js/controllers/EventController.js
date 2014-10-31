@@ -8,9 +8,10 @@
 
     $scope.sortorder = 'name';
 
-    eventData.getEvent(function(event) {
-      $scope.event = event;
-    });
+    eventData.getEvent().then(
+      function (event) { $scope.event = event; },
+      function (status) { console.log(status); }
+    );
 
     $scope.upVoteSession = function(session) {
       session.upVoteCount++;
