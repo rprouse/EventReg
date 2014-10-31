@@ -1,3 +1,8 @@
+/* For Angular's ng-cloak directive */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+}
+
 body {
   padding-top: 60px;
   padding-bottom: 20px;
