@@ -3,9 +3,9 @@
 
   eventsApp.factory('gravatarUrlBuilder', GravatarUrlBuilder);
 
-  GravatarUrlBuilder.$inject = ['$http'];
+  GravatarUrlBuilder.$inject = [];
 
-  function GravatarUrlBuilder($http) {
+  function GravatarUrlBuilder() {
     var service = {
         buildGravatarUrl: function(email) {
           var defaultGravatarUrl = "http://www.gravatar.com/avatar/000?s=200";
