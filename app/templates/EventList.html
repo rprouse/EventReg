@@ -2,20 +2,22 @@
   <h1>Events</h1>
   <ul class="thumbnails">
     <div ng-repeat="event in events|orderBy:sortorder">
-      <div class="panel panel-info">
-        <div class="panel-heading"><span>{{event.name}}</span></div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-6">
-              Date: {{event.date | date:'mediumDate'}}<br />
-              Time: {{event.time}}
-            </div>
-            <div class="col-md-6">
-              Location: {{event.location.address}}<br />
-              {{event.location.city}}, {{event.location.province}}
+      <div class="panel-event">
+        <a href="#/event/{{event.id}}">
+          <div class="well">
+            <h3>{{event.name}}</h3>
+            <div class="row">
+              <div class="col-md-6">
+                Date: {{event.date | date:'mediumDate'}}<br />
+                Time: {{event.time}}
+              </div>
+              <div class="col-md-6">
+                Location: {{event.location.address}}<br />
+                {{event.location.city}}, {{event.location.province}}
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </ul>

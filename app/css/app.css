@@ -1,33 +1,53 @@
 /* For Angular's ng-cloak directive */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
+    display: none !important;
 }
 
 body {
-  padding-top: 60px;
-  padding-bottom: 20px;
+    padding-top: 60px;
+    padding-bottom: 20px;
 }
 
 img.avatar {
-  border: 1px solid #;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
+    border: 1px solid #;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
 
 .session {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .votingButton {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .event-image {
-  margin-top: 20px;
+    margin-top: 20px;
 }
+
+.panel-event {
+    cursor: pointer;
+}
+
+div.panel-event > a {
+    color: #333;
+}
+
+    div.panel-event > a:hover {
+        text-decoration: none;
+    }
+
+    div.panel-event > a > div.well:hover {
+        background-color: #E5E5E4;
+    }
+
+    div.panel-event > a > div.well > h3 {
+        margin-top: 0;
+    }

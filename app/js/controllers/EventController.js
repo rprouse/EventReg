@@ -2,9 +2,9 @@
 
   eventsApp.controller('EventController', EventController);
 
-  EventController.$inject = ['$scope', 'eventData'];
+  EventController.$inject = ['$scope', '$routeParams', 'eventData'];
 
-  function EventController($scope, eventData) {
+  function EventController($scope, $routeParams, eventData) {
 
     $scope.sortorder = 'name';
     $scope.alerts = [];
@@ -17,7 +17,7 @@
       $scope.alerts.splice(index, 1);
     };
 
-    eventData.getEvent(5)
+    eventData.getEvent($routeParams.eventId)
       .$promise.then(
         function (event) {
           $scope.invalid = false;
