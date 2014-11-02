@@ -272,7 +272,7 @@ StaticServlet.prototype.sendFile_ = function (req, res, path) {
 
 StaticServlet.prototype.sendAllJsonFilesAppended_ = function (req, res, path) {
     var self = this;
-    var files = []
+    var files = [];
     try {
         files = fs.readdirSync(path);
     }

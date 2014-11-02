@@ -12,6 +12,9 @@
       getEvent: function (id) {
         return resource.get({ id: id });
       },
+      getAllEvents: function () {
+        return resource.query();
+      },
       saveEvent: function (event) {
         // TODO: We need to add an id
         event.id = 999;
