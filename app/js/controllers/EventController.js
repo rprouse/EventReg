@@ -2,9 +2,9 @@
 
   eventsApp.controller('EventController', EventController);
 
-  EventController.$inject = ['$scope', 'eventData'];
+  EventController.$inject = ['$scope', '$anchorScroll', 'eventData'];
 
-  function EventController($scope, eventData) {
+  function EventController($scope, $anchorScroll, eventData) {
 
     $scope.sortorder = 'name';
     $scope.alerts = [];
@@ -17,7 +17,7 @@
       $scope.alerts.splice(index, 1);
     };
 
-    eventData.getEvent(5)
+    eventData.getEvent(1)
       .$promise.then(
         function (event) {
           $scope.invalid = false;
@@ -36,6 +36,10 @@
 
     $scope.downVoteSession = function (session) {
       session.upVoteCount--;
+    }
+
+    $scope.scrollToSession = function() {
+      $anchorScroll();
     }
   }
 })();
