@@ -13,7 +13,10 @@
     return {
       restrict: 'E',
       replace: true,
-      templateUrl: 'templates/directives/EventThumbnail.html'
+      templateUrl: 'templates/directives/EventThumbnail.html',
+      scope: {
+        event: "="
+      }
     };
   }
 
