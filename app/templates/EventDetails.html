@@ -57,13 +57,7 @@
             <div class="panel-heading"><span>{{session.name}}</span></div>
             <div class="panel-body">
               <div class="col-sm-2 col-md-1 text-center">
-                <div class="votingButton" ng-click="upVoteSession(session)">
-                  <i class="fa fa-chevron-up"></i>
-                </div>
-                <span class="badge">{{session.upVoteCount}}</span>
-                <div class="votingButton" ng-click="downVoteSession(session)">
-                  <i class="fa fa-chevron-down"></i>
-                </div>
+                <vote upvote="upVoteSession(session)" downvote="downVoteSession(session)" count="session.upVoteCount"/>
               </div>
               <div class="col-sm-10 col-md-11">
                 <p>
